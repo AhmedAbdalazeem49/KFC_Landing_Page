@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>KFC</title>
+</head>
+<body>
+    <section class="main">
+        <header>
+            <a href="#"><img src="logo.png" alt="KFC Logo" class="logo"></a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="text">
+                <h2>It's Fingers<br>Lickin <span>Good.</span></h2>
+                <p>
+                    KFC (Kentucky Fried Chicken) is an American fast food restaurant chain headquartered in Louisville,
+                    Kentucky, that specializes in fried chicken. It is the world's second-largest restaurant chain 
+                    (as measured by sales) after McDonald's, with 22,621 locations
+                    globally in 150 countries as of December 2019.
+                </p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+            <div class="slider">
+                <div class="slides active">
+                    <img src="burger_fries.png" alt="">
+                </div>
+                <div class="slides">
+                    <img src="french_fries.png">
+                </div>
+                <div class="slides">
+                    <img src="burger.png" alt="">
+                </div>
+                <div class="slides">
+                    <img src="fried_chicken.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul class="sci">
+                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            </ul>
+            <div class="prevNext">
+                <p>Always Fresh</p>
+                <span class="prev"><ion-icon name="chevron-back-outline"></ion-icon></span>
+                <span class="next"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+            </div>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script type="text/javascript">
+
+            // Toggle Button 
+            const menuToggle = document.querySelector(".toggle");
+            const navigation = document.querySelector(".navigation");
+            menuToggle.onclick = function()
+            {
+                menuToggle.classList.toggle("active");
+                navigation.classList.toggle("active");
+            };
+
+            // Slider
+            const slides = document.querySelectorAll(".slides");
+            const prev = document.querySelector(".prev");
+            const next = document.querySelector(".next");
+
+            let i = 0 ;
+
+            function activeSlide(n)
+            {
+                for(slide of slides)
+                {
+                    slide.classList.remove("active");
+                    slides[n].classList.add("active");
+                }
+            };
+
+            // Function For Next Button 
+            next.addEventListener("click" , function()
+            {
+                if(i == slides.length - 1)
+                {
+                    i = 0 ;
+                    activeSlide(i);
+                }
+                else
+                {
+                    i++;
+                    activeSlide(i);
+                };
+            });
+
+            // Function For Prev Button
+            prev.addEventListener("click" , function()
+            {
+                if(i == 0)
+                {
+                    i = slides.length - 1 ;
+                    activeSlide(i);
+                }
+                else
+                {
+                    i--;
+                    activeSlide(i);
+                };
+            });
+        </script>
+    </section> 
+</body>
+</html>
